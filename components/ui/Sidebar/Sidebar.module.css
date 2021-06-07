@@ -1,0 +1,27 @@
+.Sidebar {
+  width: 22rem;
+  grid-area: sidebar;
+  background-color: #1b2431;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transition: all 0.5s;
+}
+
+.Sidebar__sticky {
+  position: sticky;
+  top: 4.8rem;
+  height: calc(100vh - 4.8rem);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.Sidebar.Sidebar__open {
+  display: inline !important;
+  z-index: 9999 !important;
+  left: 0 !important;
+  position: absolute;
+}

@@ -1,0 +1,14 @@
+{
+  "env": {
+    "test": {
+      "presets": ["@babel/preset-env", "@babel/react", "next/babel"]
+    },
+    "development": {
+      "presets": ["next/babel"]
+    },
+    "production": {
+      "presets": ["@babel/preset-env", "@babel/react", "next/babel"],
+      "plugins": [["react-remove-properties", { "properties": ["data-test"] }]]
+    }
+  }
+}

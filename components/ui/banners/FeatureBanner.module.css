@@ -1,0 +1,23 @@
+.Container {
+  display: grid;
+  grid-gap: 5rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  padding: 4rem;
+}
+
+.InfoCard {
+  text-align: center;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.InfoCard svg {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+.InfoCard p {
+  font-size: 1.6rem;
+  font-weight: 500;
+}

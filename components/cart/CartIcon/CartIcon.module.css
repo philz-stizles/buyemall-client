@@ -1,0 +1,21 @@
+.CartIcon {
+  width: 4.5rem;
+  height: 4.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.CartIcon svg {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.CartIcon__item-count {
+  position: absolute;
+  font-size: 10px;
+  font-weight: bold;
+  bottom: 12px;
+}

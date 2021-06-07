@@ -1,0 +1,26 @@
+.HomeNav {
+  padding: 0 5rem;
+  background: #fff;
+}
+
+.NavList {
+  display: grid;
+  justify-content: center;
+  grid-gap: 40px;
+  grid-auto-flow: column;
+}
+
+.NavItem {
+  padding: 2rem 0;
+}
+
+.NavLink {
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.NavLink:hover {
+  color: grey;
+}

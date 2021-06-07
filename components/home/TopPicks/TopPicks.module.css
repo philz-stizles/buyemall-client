@@ -1,0 +1,53 @@
+.TopPicks {
+  padding: 15rem 5rem;
+}
+
+.TopPicks h2 {
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 400;
+  margin-bottom: 5rem;
+}
+
+.TopPicksGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5rem;
+}
+
+.TopPicksCard {
+}
+
+.TopPicksCardImage {
+  position: relative;
+}
+
+.TopPicksCardMeta {
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  padding: 0.4rem 0.8rem;
+  background: #121212;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.TopPicksCardContent {
+  padding-top: 3.5rem;
+}
+
+.TopPicksCardContent h6 {
+  font-weight: 500;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 1rem;
+}
+
+.TopPicksCardContent p {
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+}

@@ -1,0 +1,63 @@
+.AccountPage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 100vh;
+  background: #dee2ff;
+}
+
+.AccountPageNav {
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  color: #121212;
+  padding: 2rem 5rem;
+  display: flex;
+  justify-content: center;
+  transition: all 0.4s ease-in-out;
+  z-index: 100;
+}
+
+.AccountPageNav h1 {
+  font-size: 2.2rem;
+  letter-spacing: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  animation-name: flex-to-center;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  /* transition: all 0.4s ease-in-out; */
+}
+
+.AccountPageLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  border-right: 0.5px solid #eaeaea;
+  margin: 5rem 0;
+}
+
+.AccountPageRegister {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  border-left: 0.5px solid #eaeaea;
+  margin: 5rem 0;
+}
+
+@keyframes flex-to-center {
+  0% {
+    justify-content: flex-start;
+  }
+
+  50% {
+    justify-content: flex-start;
+  }
+
+  100% {
+    justify-content: center;
+  }
+}
