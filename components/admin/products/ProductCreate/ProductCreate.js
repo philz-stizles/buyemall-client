@@ -249,8 +249,8 @@ const ProductCreate = ({ initialData }) => {
             value={shipping}
             onChange={handleInputChange}
             options={[
-              { _id: 'yes', name: 'Yes' },
-              { _id: 'no', name: 'No' }
+              { _id: 'Yes', name: 'Yes' },
+              { _id: 'No', name: 'No' }
             ]}
           />
 

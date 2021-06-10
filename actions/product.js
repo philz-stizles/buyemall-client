@@ -19,7 +19,7 @@ export const getProduct = async (slug) => await axios.get(`${baseUrl}/products/$
 export const updateProduct = async (slug, product) =>
   await axios.put(`${baseUrl}/products/${slug}`, product)
 
-export const getFilteredProducts = async (page, limit, sort, order) =>
+export const getFilteredProducts = async ({ page, limit, sort, order }) =>
   await axios.post(`${baseUrl}/products/filtered`, {
     limit,
     sort,

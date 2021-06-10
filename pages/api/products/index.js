@@ -1,7 +1,7 @@
 import { getSession } from 'next-auth/client'
 const slugify = require('slugify')
 import User from '../../../models/user'
-import Product from '../../../models/subCategory'
+import Product from '../../../models/product'
 import connectDB from '../../../middleware/mongoose-middleware'
 
 const handler = async (req, res) => {
@@ -9,32 +9,30 @@ const handler = async (req, res) => {
   switch (req.method) {
     case 'POST': {
       if (session) {
-        const { title, description, category, subCategory } = req.body
+        const { title, category } = req.body
+        console.log(req.body)
 
-        if (!title || title.trim().length !== '' || !category || category.trim().length !== '') {
-          return res.status(422).json({ message: 'Please input valid information' })
+        if (!title || title.trim().length === '' || !category || category.trim().length === '') {
+          return res.status(400).json({ message: 'Please input valid information' })
         }
 
         try {
           // Validate user - user must exist
           const existingUser = await User.findOne({ email: session.user.email }).exec()
           if (!existingUser) {
-            return res.status(422).json({ message: 'User does not exist' })
+            return res.status(401).json({ message: 'User does not exist' })
           }
 
           const newEntity = new Product({
-            title,
-            description,
-            category,
-            subCategory,
+            ...req.body,
             slug: slugify(title),
-            creator: existingUser._id
+            createdBy: existingUser._id
           })
           await newEntity.save()
 
           return res.status(201).json({ status: true, message: 'Created Successfully' })
         } catch (error) {
-          console.log(`subCategories ${error.message}`)
+          console.log(`products ${error.message}`)
           return res.status(500).json({
             status: false,
             message: 'This service cannot be reached at this time. Please try again later'

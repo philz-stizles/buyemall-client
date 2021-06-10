@@ -40,7 +40,7 @@ const handler = async (req, res) => {
 
           // UPDATE METHOD 2 - findOneAndUpdate()
           const updatedEntity = await Product.findOneAndUpdate(
-            { slug, creator: existingUser._id },
+            { _id: slug, creator: existingUser._id },
             req.body,
             { new: true }
           ).exec()
@@ -66,10 +66,10 @@ const handler = async (req, res) => {
             return res.status(422).json({ message: 'User does not exist' })
           }
 
-          // REMOVE/DELETE METHOD 2: findOneAndRemove()
+          // REMOVE/DELETE METHOD 2: findOneAndRemove() // returns null if no resource was deleted
           const removedEntity = await Product.findOneAndRemove({
-            slug,
-            creator: existingUser._id
+            _id: slug,
+            createdBy: existingUser._id
           }).exec()
           if (!removedEntity) {
             console.log(removedEntity)

@@ -21,7 +21,7 @@ const ProductList = () => {
 
   const loadProducts = async () => {
     try {
-      const response = await getFilteredProducts()
+      const response = await getFilteredProducts({ limit: 10 })
       console.log(response.data)
       setIsLoading(false)
       setProducts(response.data.data)
@@ -73,18 +73,24 @@ const ProductList = () => {
       mainContent = (
         <Table
           items={products}
-          headings={['Title', 'Description', 'Price', 'Image', 'Created at']}
+          headings={['Title', 'Description', 'Price', 'Quantity', 'Created at']}
           excludes={[
             '_id',
             '__v',
             'ratings',
             'sold',
             'creator',
+            'createdBy',
             'isPublished',
             'images',
             'updatedAt',
             'category',
-            'subCategories'
+            'subCategories',
+            'brand',
+            'color',
+            'isPublished',
+            'shipping',
+            'slug'
           ]}
           onDelete={handleDelete}
           onEdit={handleEdit}

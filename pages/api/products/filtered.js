@@ -11,7 +11,7 @@ const handler = async (req, res) => {
         .skip(skip)
         .limit(limit)
         .populate('category')
-        .populate('subCategories')
+        // .populate('subCategories')
         .sort([[sort, order]])
         .exec() // The advantage of using exec() is
       // gives you better stack traces
