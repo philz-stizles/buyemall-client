@@ -1,24 +1,26 @@
-import React from 'react'
+// import React, { forwardRef, useRef } from 'react'
 import PropTypes from 'prop-types'
 
 const SolidInput = ({ label, ...rest }) => {
   return (
     <div className="SolidInput">
       <label htmlFor={rest.name}>{label}</label>
-      <input type="text" {...rest} id={rest.name} />
+      {rest.type === 'text' ? <input {...rest} id={rest.name} /> : <textarea {...rest}></textarea>}
       <style jsx>{`
         .SolidInput {
           margin-bottom: 1.25rem;
         }
 
-        .SolidInput input {
-          height: 4.5rem;
-          font-size: 0.875rem;
-          padding: 0 0.5rem;
+        .SolidInput input,
+        .SolidInput textarea {
+          font-size: 1.4rem;
+          line-height: 1.21428571em;
+          padding: 0.67857143em 1em;
+          background: #fff;
+          border: 1px solid rgba(34, 36, 38, 0.15);
           border-radius: none;
           appearance: none;
-          color: rgb(0, 0, 0);
-          background-color: rgb(255, 255, 255);
+          // color: rgba(34, 36, 38, 0.15);
           width: 100%;
           text-overflow: ellipsis;
           border-width: 1px;

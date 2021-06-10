@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
+import { userSchema } from './user'
 
 const { ObjectId } = mongoose.Schema
 
-const categorySchema = new mongoose.Schema(
+export const categorySchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -14,7 +15,6 @@ const categorySchema = new mongoose.Schema(
     description: {
       type: String,
       trim: true,
-      minlength: [6, 'Too short'],
       maxlength: [32, 'Too long']
     },
     image: { url: String, publicId: String },
@@ -26,5 +26,7 @@ const categorySchema = new mongoose.Schema(
 
 mongoose.models = {}
 
+mongoose.model('User', userSchema)
+// const User = mongoose.model('User', userSchema)
 const Category = mongoose.model('Category', categorySchema)
 export default Category

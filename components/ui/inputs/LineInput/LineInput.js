@@ -16,11 +16,11 @@ const LineInput = ({ label, ...rest }) => {
 
         .LineInput input {
           border: 0;
-          border-bottom: 2px solid;
+          border-bottom: 2px solid #738297;
           cursor: text;
           padding: 0.3em 0;
           border-radius: 0;
-          color: currentColor;
+          color: #738297;
           line-height: 1.7142857143;
           background: none;
           font-weight: 500;
@@ -44,7 +44,7 @@ const LineInput = ({ label, ...rest }) => {
           opacity: 0.5;
           transition: all 0.17s linear;
           touch-action: manipulation;
-          color: #121212;
+          color: #738297;
         }
 
         .LineInput input:placeholder-shown + label {

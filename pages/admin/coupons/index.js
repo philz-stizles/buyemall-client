@@ -2,9 +2,14 @@ import React from 'react'
 import { getSession } from 'next-auth/client'
 import PropTypes from 'prop-types'
 import DashboardLayout from '../../../components/layout/DashboardLayout/DashboardLayout'
+import CouponsContent from '../../../components/admin/coupons/CouponsContent'
 
 const CouponsDashboardPage = ({ session }) => {
-  return <DashboardLayout session={session}>Coupons</DashboardLayout>
+  return (
+    <DashboardLayout session={session}>
+      <CouponsContent />
+    </DashboardLayout>
+  )
 }
 
 export const getServerSideProps = async (context) => {

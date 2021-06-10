@@ -1,11 +1,11 @@
 import { hashPasswordAsync } from '../../../lib/auth'
-import connectDbAsync from '../../../middleware/mongoose-middleware'
+import connectDbAsync from '../../../lib/mongoose'
 import User from '../../../models/user'
 
 const handler = async (req, res) => {
   try {
     if (req.method === 'POST') {
-      const { firstname, lastname, email, password } = req.body
+      const { firstname, lastname, email, password, accountType } = req.body
 
       if (
         !firstname ||
@@ -19,6 +19,7 @@ const handler = async (req, res) => {
       }
 
       // Check user
+      await connectDbAsync()
       const existingUser = await User.findOne({ email }).exec()
       if (existingUser) {
         return res.status(422).json({ message: 'User already exists' })
@@ -27,7 +28,13 @@ const handler = async (req, res) => {
       // Hash password
       const hashedPassword = await hashPasswordAsync(password)
 
-      const newUser = new User({ firstname, lastname, email, password: hashedPassword })
+      const newUser = new User({
+        firstname,
+        lastname,
+        email,
+        password: hashedPassword,
+        accountType
+      })
       await newUser.save()
 
       return res.status(201).json({ message: 'New user created' })
@@ -38,4 +45,4 @@ const handler = async (req, res) => {
   }
 }
 
-export default connectDbAsync(handler)
+export default handler

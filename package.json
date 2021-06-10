@@ -26,7 +26,8 @@
     "react-chartjs-2": "^3.0.3",
     "react-dom": "17.0.2",
     "react-redux": "^7.2.4",
-    "redux": "^4.1.0"
+    "redux": "^4.1.0",
+    "slugify": "^1.5.3"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.14.4",
@@ -43,6 +44,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.3",
+    "moxios": "^0.4.0",
     "prettier": "^2.3.0"
   }
 }

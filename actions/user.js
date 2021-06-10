@@ -2,6 +2,10 @@ import axios from 'axios'
 
 const baseUrl = process.env.REACT_APP_API_URL
 
+export const getUsers = async () => await axios.get(`${baseUrl}/users`)
+
+export const deactivateUser = async (id) => await axios.get(`${baseUrl}/users/${id}`)
+
 export const saveUserAddress = async (address) =>
   await axios.put(`${baseUrl}/users/address`, { address })
 

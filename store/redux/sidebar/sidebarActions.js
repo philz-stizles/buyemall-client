@@ -1,4 +1,4 @@
-import { CLOSE_SIDEBAR, OPEN_SIDEBAR, SET_ACTIVE_LINK } from '../types'
+import { CLOSE_SIDEBAR, OPEN_SIDEBAR, SET_ACTIVE_LINK, TOGGLE_DROPDOWN } from '../types'
 
 /**
  * @function  setActiveMenuItem
@@ -6,8 +6,17 @@ import { CLOSE_SIDEBAR, OPEN_SIDEBAR, SET_ACTIVE_LINK } from '../types'
  * @returns  {object} - action object with action-type "SET_ACTIVE_LINK"
  */
 export const setActiveMenuItem = (activeLink) => {
+  console.log(activeLink)
+  localStorage.setItem('activeLink', JSON.stringify(activeLink))
   return {
     type: SET_ACTIVE_LINK,
+    payload: activeLink
+  }
+}
+
+export const toggleDropdown = (activeLink) => {
+  return {
+    type: TOGGLE_DROPDOWN,
     payload: activeLink
   }
 }

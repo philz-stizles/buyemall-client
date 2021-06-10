@@ -7,9 +7,10 @@ describe('<LoginForm />', () => {
   let wrapper
   const mockSetLoginForm = jest.fn()
   const mockInitLoginFormState = { email: '', password: '' }
-  React.useState = jest.fn(() => [mockInitLoginFormState, mockSetLoginForm])
 
   beforeEach(() => {
+    mockSetLoginForm.mockClear()
+    React.useState = jest.fn(() => [mockInitLoginFormState, mockSetLoginForm])
     wrapper = shallow(<LoginForm />)
   })
 

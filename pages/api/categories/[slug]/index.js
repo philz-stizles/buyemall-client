@@ -27,7 +27,7 @@ const handler = async (req, res) => {
       case 'PUT': {
         const { name, description } = req.body
 
-        if (!name || name.trim().length !== '') {
+        if (!name || name.trim().length === '') {
           return res.status(422).json({ message: 'Please input valid information' })
         }
 

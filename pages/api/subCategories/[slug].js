@@ -1,7 +1,7 @@
 import { getSession } from 'next-auth/client'
 const slugify = require('slugify')
 import User from '../../../models/user'
-import SubCategory from '../../../models/tag'
+import SubCategory from '../../../models/subCategory'
 import connectDB from '../../../middleware/mongoose-middleware'
 
 const handler = async (req, res) => {

@@ -1,10 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import LoginForm from '../../../components/account/LoginForm/LoginForm'
-import RegisterForm from '../../account/RegisterForm/RegisterForm'
+import CreateForm from '../../../components/ui/forms/CreateForm'
+import SubCategoryForm from '../../admin/subCategories/components/SubCategoryForm'
 
 const ModalManager = () => {
-  const modalLookup = { LoginForm, RegisterForm }
+  const modalLookup = { CreateForm, SubCategoryForm }
 
   const currentModal = useSelector((state) => state.modal)
 

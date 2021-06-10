@@ -5,14 +5,18 @@ import User from './../../../models/user'
 import SubCategory from './../../../models/subCategory'
 import connectDB from '../../../middleware/mongoose-middleware'
 
+const secret = process.env.JWT_SECRET
+
 const handler = async (req, res) => {
   const session = await getSession({ req })
+  const token = await jwt.getToken({ req, secret })
+  console.log(token)
   switch (req.method) {
     case 'POST': {
       if (session) {
         const { name, category } = req.body
 
-        if (!name || name.trim().length !== '' || !category || category.trim().length !== '') {
+        if (!name || name.trim().length === '' || !category || category.trim().length === '') {
           return res.status(422).json({ message: 'Please input valid information' })
         }
 
@@ -48,7 +52,11 @@ const handler = async (req, res) => {
     }
     case 'GET': {
       try {
-        const entities = await SubCategory.find({}).sort({ createdAt: -1 }).exec() // The advantage of using exec() is
+        const entities = await SubCategory.find({})
+          .sort({ createdAt: -1 })
+          .populate('creator', 'email')
+          .populate('category', 'name')
+          .exec() // The advantage of using exec() is
         // gives you better stack traces
 
         return res.json({ status: true, data: entities, message: 'Retrieved successfully' })

@@ -2,19 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SidebarMenuItem from './SidebarMenuItem'
 import SidebarMenuTitle from './SidebarMenuTitle'
-const SidebarMenu = ({ title, items, onClickLink }) => {
+const SidebarMenu = ({ title, items }) => {
   return (
     <ul className="SidebarMenu">
       {title && <SidebarMenuTitle title={title} />}
-      {items.map(({ id, icon, text }) => (
-        <SidebarMenuItem
-          key={id}
-          href={id}
-          color="#a5aaad"
-          icon={icon}
-          text={text}
-          onClickLink={() => onClickLink(id)}
-        />
+      {items.map(({ id, icon, text, items }) => (
+        <SidebarMenuItem key={id} href={id} color="#a5aaad" icon={icon} text={text} items={items} />
       ))}
       <style jsx>{`
         .SidebarMenu {

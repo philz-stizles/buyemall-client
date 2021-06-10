@@ -1,8 +1,9 @@
-import { CLOSE_SIDEBAR, OPEN_SIDEBAR, SET_ACTIVE_LINK } from '../types'
+import { CLOSE_SIDEBAR, OPEN_SIDEBAR, SET_ACTIVE_LINK, TOGGLE_DROPDOWN } from '../types'
 
 const initialState = {
   isOpen: true,
-  activeMenuItem: '/admin/dashboard'
+  activeMenuItem: ['/admin/dashboard'],
+  isDropdownOpen: false
 }
 
 /**
@@ -17,7 +18,13 @@ const sidebarReducer = (state = initialState, action) => {
     case SET_ACTIVE_LINK: {
       return {
         ...state,
-        activeMenuItem: payload
+        activeMenuItem: [...payload]
+      }
+    }
+    case TOGGLE_DROPDOWN: {
+      return {
+        ...state,
+        isDropdownOpen: !state.isDropdownOpen
       }
     }
     case CLOSE_SIDEBAR: {

@@ -31,7 +31,7 @@ const DashboardNav = ({ onClick, session }) => {
       <div className="Nav__user">
         <Link href="/user/profile">
           <a>
-            {session.user.email}
+            <span>{session.user.email}</span>
             <Image src={`/images/avatar.svg`} width={30} height={30} alt="User image" />
           </a>
         </Link>
@@ -84,6 +84,13 @@ const DashboardNav = ({ onClick, session }) => {
           display: block;
           padding: 0.5rem 1.2rem;
           font-size: 1.6rem;
+          display: flex;
+          align-items: center;
+        }
+
+        .Nav__user > a span {
+          display: inline-block;
+          margin-right: 1.2rem;
         }
       `}</style>
     </nav>

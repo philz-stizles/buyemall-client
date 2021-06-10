@@ -2,7 +2,7 @@ import { getSession } from 'next-auth/client'
 const slugify = require('slugify')
 import User from './../../../models/user'
 import Category from './../../../models/category'
-import connectDB from '../../../middleware/mongoose-middleware'
+import connectDbAsync from '../../../lib/mongoose'
 
 const handler = async (req, res) => {
   const session = await getSession({ req })
@@ -11,11 +11,12 @@ const handler = async (req, res) => {
       if (session) {
         const { name, description } = req.body
 
-        if (!name || name.trim().length !== '') {
+        if (!name || name.trim().length === '') {
           return res.status(422).json({ message: 'Please input valid information' })
         }
 
         try {
+          await connectDbAsync()
           // Validate user - user must exist
           const existingUser = await User.findOne({ email: session.user.email }).exec()
           if (!existingUser) {
@@ -47,8 +48,8 @@ const handler = async (req, res) => {
     }
     case 'GET': {
       try {
-        const entities = await Category.find({}).exec()
-
+        await connectDbAsync()
+        const entities = await Category.find({}).populate('creator', 'email').exec()
         return res.json({ status: true, data: entities, message: 'Retrieved successfully' })
       } catch (error) {
         console.log(error.message)
@@ -66,4 +67,4 @@ const handler = async (req, res) => {
   res.end()
 }
 
-export default connectDB(handler)
+export default handler

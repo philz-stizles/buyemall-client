@@ -91,6 +91,10 @@ const RegisterForm = () => {
           value={accountType}
           onChange={handleInputChange}
           label="Select the type of account you want to create"
+          options={[
+            { _id: 'customer', name: 'Customer - Buyer' },
+            { _id: 'business', name: 'Business - Seller' }
+          ]}
         />
         <div className="RegisterButton">
           <SquareButton expanded>REGISTER</SquareButton>

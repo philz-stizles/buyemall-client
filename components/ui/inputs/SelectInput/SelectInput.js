@@ -1,28 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const SelectInput = ({ label, ...rest }) => {
+const SelectInput = ({ label, options, ...rest }) => {
   return (
     <div className="SelectInput">
-      <label htmlFor={rest.id}>{label}</label>
+      {/*<label htmlFor={rest.id}>{label}</label>**/}
       <select {...rest} id={rest.id}>
-        <option value="Customer">Customer - Buyer</option>
-        <option value="Business">Business - Seller</option>
+        <option>{label}</option>
+        {options.map(({ _id, name }) => (
+          <option key={_id} value={_id}>
+            {name}
+          </option>
+        ))}
       </select>
 
       <style jsx>{`
         .SelectInput {
+          width: 100%;
           margin-top: 3rem;
         }
 
         .SelectInput select {
+          width: 100%;
+          font-size: 1.2rem;
           display: inline-block;
-          padding: 10px 30px;
+          padding: 10px 30px 10px 0;
           line-height: normal;
           text-transform: uppercase;
           cursor: pointer;
-          border: 2px solid #121212;
-          color: #121212;
+          border-bottom: 2px solid #738297;
+          color: #738297;
           background: transparent;
           transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out,
             border-color 0.4s ease-in-out;
@@ -40,7 +47,7 @@ const SelectInput = ({ label, ...rest }) => {
           text-transform: uppercase;
           line-height: 1.2857142857;
           opacity: 0.5;
-          color: #121212;
+          color: #738297;
           margin-bottom: 0.7rem;
           transition: all 0.17s linear;
         }
@@ -50,7 +57,8 @@ const SelectInput = ({ label, ...rest }) => {
 }
 
 SelectInput.propTypes = {
-  label: PropTypes.string
+  label: PropTypes.string,
+  options: PropTypes.array.isRequired
 }
 
 export default SelectInput

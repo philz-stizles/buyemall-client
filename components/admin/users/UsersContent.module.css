@@ -1,0 +1,40 @@
+.UsersContent {
+  padding: 0 3.5rem;
+  /* display: grid;
+  grid-template-rows: min-content; */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.Main {
+  flex: 1;
+  display: grid;
+  align-items: flex-start;
+}
+
+.NoContent,
+.Loader {
+  align-self: center;
+  justify-self: center;
+  transform: translateY(-10rem);
+}
+
+.NoContent {
+  width: 15rem;
+  height: 15rem;
+  color: #323a46;
+  font-weight: medium;
+}
+
+.NoContent p {
+  font-weight: 500;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.Loader div {
+  width: 7rem;
+  height: 7rem;
+  /* border-color: #323a46; */
+}

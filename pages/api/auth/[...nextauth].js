@@ -58,5 +58,12 @@ export default NextAuth({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })
-  ]
+  ],
+  callbacks: {
+    async session(session, token) {
+      // Add property to session, like an access_token from a provider.
+      session.accessToken = token.accessToken
+      return session
+    }
+  }
 })

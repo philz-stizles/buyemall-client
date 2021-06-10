@@ -1,4 +1,6 @@
 import mongoose from 'mongoose'
+import { categorySchema } from './category'
+import { userSchema } from './user'
 
 const { ObjectId } = mongoose.Schema
 
@@ -19,6 +21,8 @@ const subCategorySchema = new mongoose.Schema(
 )
 
 mongoose.models = {}
+mongoose.model('User', userSchema)
+mongoose.model('Category', categorySchema)
 
 const SubCategory = mongoose.model('SubCategory', subCategorySchema)
 export default SubCategory

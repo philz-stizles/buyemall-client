@@ -7,8 +7,9 @@ const modalReducer = (state = initialState, { type, payload }) => {
     case OPEN_MODAL: {
       return { ...payload }
     }
-    case CLOSE_MODAL:
+    case CLOSE_MODAL: {
       return null
+    }
     default:
       return state
   }

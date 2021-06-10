@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import DashboardLayout from '../../../components/layout/DashboardLayout/DashboardLayout'
 
 const ReportsDashboardPage = ({ session }) => {
+  console.log('Report client-side')
   return <DashboardLayout session={session}>Reports</DashboardLayout>
 }
 
@@ -17,7 +18,7 @@ export const getServerSideProps = async (context) => {
       }
     }
   }
-
+  console.log('Report server-side')
   return {
     props: { session }
   }
