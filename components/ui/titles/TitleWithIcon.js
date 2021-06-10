@@ -9,7 +9,13 @@ const TitleWithIcon = ({ title, subTitle, icon, actions }) => {
         <span className="TitleWithIcon__sub-title">| {subTitle}</span>
       </div>
       {icon && <i className={icon} aria-hidden="true" />}
-      {actions && actions.map((action, i) => <Fragment key={i}>{action}</Fragment>)}
+      {actions && (
+        <div className="TitleWithIcon__actions">
+          {actions.map((action, i) => (
+            <Fragment key={i}>{action}</Fragment>
+          ))}
+        </div>
+      )}
 
       <style jsx>{`
         .TitleWithIcon {

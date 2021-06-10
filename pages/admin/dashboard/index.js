@@ -39,7 +39,7 @@ const AdminDashboardPage = ({ session }) => {
     mainContent = <CategoriesContent />
   } else if (activeMenuItem.includes('/admin/products')) {
     mainContent = <ProductsContent />
-  } else if (activeMenuItem === '/admin/coupons') {
+  } else if (activeMenuItem.includes('/admin/coupons')) {
     mainContent = <CouponsContent />
   } else if (activeMenuItem === '/admin/orders') {
     mainContent = <OrdersContent />

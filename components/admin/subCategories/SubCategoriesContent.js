@@ -44,18 +44,18 @@ const SubCategoriesContent = () => {
     }
   }
 
-  const handleDelete = async (id) => {
-    const response = await removeSubCategory(id)
+  const handleDelete = async (item) => {
+    const response = await removeSubCategory(item.slug)
     loadSubCategories()
     console.log(response.data)
   }
 
-  const handleEdit = (data) => {
+  const handleEdit = (item) => {
     dispatch(
       openModal({
         modalType: 'SubCategoryForm',
         modalProps: {
-          initialData: data,
+          initialData: item,
           categories,
           onComplete: () => loadSubCategories()
         }

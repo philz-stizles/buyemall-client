@@ -1,4 +1,4 @@
-import Product from '../../../models/subCategory'
+import Product from '../../../models/product'
 import connectDB from '../../../middleware/mongoose-middleware'
 
 const handler = async (req, res) => {

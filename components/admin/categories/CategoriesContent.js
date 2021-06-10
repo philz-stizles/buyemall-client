@@ -31,18 +31,18 @@ const CategoriesContent = () => {
     }
   }
 
-  const handleDelete = async (id) => {
-    const response = await removeCategory(id)
+  const handleDelete = async (item) => {
+    const response = await removeCategory(item.slug)
     loadCategories()
     console.log(response.data)
   }
 
-  const handleEdit = (data) => {
+  const handleEdit = (item) => {
     dispatch(
       openModal({
         modalType: 'CreateForm',
         modalProps: {
-          initialData: data,
+          initialData: item,
           onComplete: () => loadCategories()
         }
       })

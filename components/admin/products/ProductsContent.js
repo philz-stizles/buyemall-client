@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react'
+import { useSelector } from 'react-redux'
 import SquareButton from '../../ui/buttons/SquareButton/SquareButton'
 import TitleWithIcon from '../../ui/titles/TitleWithIcon'
 import ProductCreate from './ProductCreate/ProductCreate'
@@ -8,45 +9,20 @@ import classes from './ProductsContent.module.css'
 
 const ProductsContent = () => {
   const [currentContent, setCurrentContent] = useState('Product Create')
+  const { activeMenuItem } = useSelector((state) => state.sidebar)
   let ProductContent
 
-  switch (currentContent) {
-    case 'Product Create': {
-      ProductContent = <ProductCreate />
-      break
-    }
-    case 'Product List': {
-      ProductContent = <ProductList />
-      break
-    }
-    case 'Product Detail': {
-      ProductContent = <ProductDetail />
-      break
-    }
-    default:
-      ProductContent = <ProductCreate />
-      break
+  if (activeMenuItem.includes('/admin/products/create')) {
+    ProductContent = <ProductCreate />
+  } else if (activeMenuItem.includes('/admin/products/list')) {
+    ProductContent = <ProductList />
+  } else if (activeMenuItem.includes('/admin/products/detail')) {
+    ProductContent = <ProductDetail />
+  } else {
+    ProductContent = <ProductCreate />
   }
 
-  return (
-    <div className={classes.ProductsContent}>
-      <TitleWithIcon
-        title="Product"
-        subTitle="10 Products"
-        actions={[
-          <SquareButton
-            key="create"
-            borderColor="#738297"
-            bgColor="transparent"
-            color="#fff"
-            onClick={() => {}}>
-            New Product
-          </SquareButton>
-        ]}
-      />
-      {ProductContent}
-    </div>
-  )
+  return <div className={classes.ProductsContent}>{ProductContent}</div>
 }
 
 ProductsContent.propTypes = {}

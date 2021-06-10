@@ -1,7 +1,7 @@
 import { getSession } from 'next-auth/client'
 import User from '../../../../models/user'
 import connectDB from '../../../../middleware/mongoose-middleware'
-import * as cloudinaryService from '../../../../services/cloudinaryService'
+import cloudinaryService from '../../../../services/cloudinaryService'
 
 const handler = async (req, res) => {
   const session = await getSession({ req })
@@ -18,6 +18,7 @@ const handler = async (req, res) => {
 
           // Upload file to storage
           const { image } = req.body
+
           const result = await cloudinaryService.uploadFileAsync(image)
 
           return res.json({

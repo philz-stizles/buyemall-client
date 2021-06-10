@@ -21,7 +21,8 @@ const SidebarMenuItem = ({ href, icon, text, items, hasParent, parent }) => {
     <li
       className="SidebarMenuItem"
       aria-hidden="true"
-      onClick={() => {
+      onClick={(e) => {
+        e.stopPropagation()
         if (hasItems) {
           console.log(href)
           dispatch(toggleDropdown())

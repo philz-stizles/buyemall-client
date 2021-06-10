@@ -1,4 +1,4 @@
-const cloudinary = require('cloudinary')
+const cloudinary = require('cloudinary').v2
 
 // config
 cloudinary.config({
@@ -8,7 +8,7 @@ cloudinary.config({
 })
 
 // req.files.file.path
-exports.uploadFile = async (file) => {
+exports.uploadFileAsync = async (file) => {
   try {
     return await cloudinary.uploader.upload(file, {
       public_id: `${Date.now()}`,
@@ -20,7 +20,7 @@ exports.uploadFile = async (file) => {
   }
 }
 
-exports.removeFile = (upload_id, cb) => {
+exports.removeFileAsync = (upload_id, cb) => {
   cloudinary.uploader.destroy(upload_id, (err, result) => {
     if (err) return cb(err, null)
     return cb(null, result)

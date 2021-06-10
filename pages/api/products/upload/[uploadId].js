@@ -18,7 +18,7 @@ const handler = async (req, res) => {
 
           // Remove file from storage
           const { uploadId } = req.query
-          cloudinaryService.removeFile(uploadId, (err, result) => {
+          cloudinaryService.removeFileAsync(uploadId, (err, result) => {
             console.log('error', err)
             console.log('result', result)
             if (err) return res.json({ success: false, err })

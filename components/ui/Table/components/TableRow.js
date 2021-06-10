@@ -5,7 +5,7 @@ import EditIcon from '../../../icons/EditIcon'
 import TrashIcon from '../../../icons/TrashIcon'
 import EyeIcon from '../../../icons/EyeIcon'
 
-const TableRow = ({ item, excludes, onDelete, onEdit, onView }) => {
+const TableRow = ({ identifier, item, excludes, onDelete, onEdit, onView }) => {
   return (
     <tr className="TableRow">
       {Object.keys(item)
@@ -24,13 +24,13 @@ const TableRow = ({ item, excludes, onDelete, onEdit, onView }) => {
           </td>
         ))}
       <td className="actions">
-        <span onClick={() => onView(item.slug)} aria-hidden="true">
+        <span onClick={() => onView(item)} aria-hidden="true">
           <EyeIcon />
         </span>
         <span onClick={() => onEdit(item)} aria-hidden="true">
           <EditIcon />
         </span>
-        <span onClick={() => onDelete(item.slug)} aria-hidden="true">
+        <span onClick={() => onDelete(item)} aria-hidden="true">
           <TrashIcon />
         </span>
       </td>

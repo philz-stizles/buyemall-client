@@ -67,10 +67,13 @@ const handler = async (req, res) => {
           }
 
           // REMOVE/DELETE METHOD 2: findOneAndRemove()
-          const removedEntity = Product.findOneAndRemove({ slug, creator: existingUser._id }).exec()
+          const removedEntity = await Product.findOneAndRemove({
+            slug,
+            creator: existingUser._id
+          }).exec()
           if (!removedEntity) {
             console.log(removedEntity)
-            return res.status(422).json({ status: false, message: 'Resource was not found' })
+            return res.status(404).json({ status: false, message: 'Resource was not found' })
           }
           return res.json({ status: true, data: removedEntity, message: 'Removed Successfully' })
         } catch (error) {

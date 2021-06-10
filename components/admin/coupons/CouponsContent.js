@@ -32,18 +32,18 @@ const CouponsContent = () => {
     }
   }
 
-  const handleDelete = async (id) => {
-    const response = await removeCoupon(id)
+  const handleDelete = async (item) => {
+    const response = await removeCoupon(item.slug)
     loadCoupons()
     console.log(response.data)
   }
 
-  const handleEdit = (data) => {
+  const handleEdit = (item) => {
     dispatch(
       openModal({
         modalType: 'CreateForm',
         modalProps: {
-          initialData: data,
+          initialData: item,
           onComplete: () => loadCoupons()
         }
       })
