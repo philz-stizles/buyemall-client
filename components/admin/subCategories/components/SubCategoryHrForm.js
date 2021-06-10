@@ -82,6 +82,7 @@ const SubCategoryHrForm = ({ onComplete, initialData, categories }) => {
           grid-column-gap: 3rem;
           grid-template-columns: repeat(3, 32rem) min-content;
           align-items: baseline;
+          margin-bottom: 3rem;
         }
       `}</style>
     </form>

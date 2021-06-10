@@ -1,6 +1,4 @@
-import Link from 'next/link'
 import React, { Fragment } from 'react'
-import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { setActiveMenuItem, toggleDropdown } from '../../../../store/redux/sidebar/sidebarActions'
@@ -8,7 +6,6 @@ import ChevronDownIcon from '../../../icons/ChevronDownIcon'
 
 const SidebarMenuItem = ({ href, icon, text, items, hasParent, parent }) => {
   const { activeMenuItem, isDropdownOpen } = useSelector((state) => state.sidebar)
-  const router = useRouter()
   const dispatch = useDispatch()
 
   const isActive = activeMenuItem.includes(href)
@@ -29,15 +26,15 @@ const SidebarMenuItem = ({ href, icon, text, items, hasParent, parent }) => {
           console.log(href)
           dispatch(toggleDropdown())
           dispatch(setActiveMenuItem([href, items[0].id]))
-          router.push(items[0].id)
+          // dispatch(setActiveMenuItem(href))
         } else if (hasParent) {
           console.log(href)
+          // dispatch(setActiveMenuItem(href))
           dispatch(setActiveMenuItem([parent, href]))
-          router.push(href)
         } else {
           console.log(href)
+          // dispatch(setActiveMenuItem(href))
           dispatch(setActiveMenuItem([href]))
-          router.push(href)
         }
       }}>
       <div className="SidebarMenuItem__link">

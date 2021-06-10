@@ -2,7 +2,7 @@ import { CLOSE_SIDEBAR, OPEN_SIDEBAR, SET_ACTIVE_LINK, TOGGLE_DROPDOWN } from '.
 
 const initialState = {
   isOpen: true,
-  activeMenuItem: ['/admin/dashboard'],
+  activeMenuItem: [],
   isDropdownOpen: false
 }
 

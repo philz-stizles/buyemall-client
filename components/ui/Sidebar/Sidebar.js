@@ -2,18 +2,14 @@ import React from 'react'
 import SidebarMenu from './components/SidebarMenu'
 import PropTypes from 'prop-types'
 
-const Sidebar = ({ isOpen, onClickLink, menuBlueprint }) => {
-  const clickLinkHandler = (id) => {
-    onClickLink(id)
-  }
-
+const Sidebar = ({ isOpen, menuBlueprint }) => {
   const sidebarClass = isOpen ? ['Sidebar'] : ['Sidebar', 'Sidebar__open']
 
   return (
     <div className={sidebarClass.join(' ')}>
       <div className="Sidebar__sticky">
         {menuBlueprint.map(({ title, items }, i) => (
-          <SidebarMenu key={i} title={title} items={items} onClickLink={clickLinkHandler} />
+          <SidebarMenu key={i} title={title} items={items} />
         ))}
       </div>
     </div>

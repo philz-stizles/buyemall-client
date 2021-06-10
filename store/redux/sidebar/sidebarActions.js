@@ -6,8 +6,8 @@ import { CLOSE_SIDEBAR, OPEN_SIDEBAR, SET_ACTIVE_LINK, TOGGLE_DROPDOWN } from '.
  * @returns  {object} - action object with action-type "SET_ACTIVE_LINK"
  */
 export const setActiveMenuItem = (activeLink) => {
-  console.log(activeLink)
-  localStorage.setItem('activeLink', JSON.stringify(activeLink))
+  // console.log(activeLink)
+  localStorage.setItem('activeMenuItem', JSON.stringify(activeLink))
   return {
     type: SET_ACTIVE_LINK,
     payload: activeLink

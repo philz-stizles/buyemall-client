@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { getOrders } from '../../../actions/orders'
+import { getOrders } from '../../../actions/order'
 import ClipboardListIcon from '../../icons/ClipboardListIcon'
 import SquareButton from '../../ui/buttons/SquareButton/SquareButton'
 import AnimatedLoader from '../../ui/loaders/AnimatedLoader/AnimatedLoader'
