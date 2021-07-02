@@ -1,5 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
+import ProductCard from '../../ui/cards/ProductCard'
+import ShadowedCard from '../../ui/cards/ShadowedCard'
+import TopPicksCard from '../../ui/cards/TopPicksCard'
 import classes from './TopPicks.module.css'
 
 const TopPicks = () => {
@@ -19,41 +22,30 @@ const TopPicks = () => {
           </div>
         </div>
 
-        <div className={classes.TopPicksCard}>
-          <div className={classes.TopPicksCardImage}>
-            <Image src="/images/tshirt-2.jpg" width={650} height={650} objectFit="cover" />
-            <div className={classes.TopPicksCardMeta}>NEW SEASON</div>
-          </div>
-          <div className={classes.TopPicksCardContent}>
-            <h6>Jackets</h6>
-            <p>Sport Jacket Cotton Linen Wood Brown</p>
-            <p>£1,350.00</p>
-          </div>
-        </div>
+        <ShadowedCard
+          src="/images/tshirt-2.jpg"
+          title="Jackets"
+          subTitle="Linen Wood Brown"
+          meta="£1,350.00"
+          subMeta="NEW SEASON"
+          link="/products/detail"
+        />
 
-        <div className={classes.TopPicksCard}>
-          <div className={classes.TopPicksCardImage}>
-            <Image src="/images/tshirt-3.jpg" width={650} height={650} objectFit="cover" />
-            <div className={classes.TopPicksCardMeta}>NEW SEASON</div>
-          </div>
-          <div className={classes.TopPicksCardContent}>
-            <h6>Jackets</h6>
-            <p>Sport Jacket Cotton Linen Wood Brown</p>
-            <p>£1,350.00</p>
-          </div>
-        </div>
+        <ProductCard
+          src="/images/tshirt-3.jpg"
+          title="Jackets"
+          subTitle="Linen Wood Brown"
+          meta="£1,350.00"
+          subMeta="NEW SEASON"
+        />
 
-        <div className={classes.TopPicksCard}>
-          <div className={classes.TopPicksCardImage}>
-            <Image src="/images/tshirt-4.jpg" width={650} height={650} objectFit="cover" />
-            <div className={classes.TopPicksCardMeta}>NEW SEASON</div>
-          </div>
-          <div className={classes.TopPicksCardContent}>
-            <h6>Jackets</h6>
-            <p>Sport Jacket Cotton Linen Wood Brown</p>
-            <p>£1,350.00</p>
-          </div>
-        </div>
+        <TopPicksCard
+          src="/images/tshirt-4.jpg"
+          title="Jackets"
+          subTitle="Sport Jacket Cotton Linen Wood Brown"
+          meta="£1,350.00"
+          subMeta="NEW SEASON"
+        />
       </div>
     </section>
   )

@@ -1,4 +1,6 @@
 import mongoose from 'mongoose'
+import { categorySchema } from './category'
+import { subCategorySchema } from './subCategory'
 
 const { ObjectId, Types } = mongoose.Schema
 
@@ -51,6 +53,8 @@ const productSchema = new mongoose.Schema(
 )
 
 mongoose.models = {}
+mongoose.model('Category', categorySchema)
+mongoose.model('SubCategory', subCategorySchema)
 
 const Product = mongoose.model('Product', productSchema)
 export default Product

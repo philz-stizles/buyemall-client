@@ -13,12 +13,12 @@ const HomeNav = () => {
         </li>
         <li className={classes.NavItem}>
           <Link href="/">
-            <a className={classes.NavLink}>Clothing</a>
+            <a className={classes.NavLink}>About</a>
           </Link>
         </li>
         <li className={classes.NavItem}>
           <Link href="/">
-            <a className={classes.NavLink}>Accessories</a>
+            <a className={classes.NavLink}>Products</a>
           </Link>
         </li>
         <li className={classes.NavItem}>

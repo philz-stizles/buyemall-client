@@ -189,7 +189,7 @@ const ProductCreate = ({ initialData }) => {
             type="text"
             label="Title"
             required
-            name="name"
+            name="title"
             value={title}
             onChange={handleInputChange}
             placeholder="Name of product"

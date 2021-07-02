@@ -49,7 +49,10 @@ const handler = async (req, res) => {
     case 'GET': {
       try {
         await connectDbAsync()
-        const entities = await Category.find({}).populate('creator', 'email').exec()
+        const entities = await Category.find({})
+          .sort('-createdAt')
+          .populate('creator', 'email')
+          .exec()
         return res.json({ status: true, data: entities, message: 'Retrieved successfully' })
       } catch (error) {
         console.log(error.message)

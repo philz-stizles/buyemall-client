@@ -4,6 +4,7 @@ import connectDB from '../../../middleware/mongoose-middleware'
 const handler = async (req, res) => {
   if (req.method === 'POST') {
     try {
+      console.log(req.body)
       const { page, limit: itemsPerPage, order, sort } = req.body
       const limit = itemsPerPage || 3
       const skip = ((page || 1) - 1) * limit

@@ -7,10 +7,12 @@ import connectDB from '../../../middleware/mongoose-middleware'
 const handler = async (req, res) => {
   const session = await getSession({ req })
   const slug = req.query.slug.toLowerCase()
+  const _id = req.query.slug
 
   if (req.method === 'GET') {
     try {
-      const entity = await Product.findOne({ slug })
+      // const entity = await Product.findOne({ slug })
+      const entity = await Product.findById(_id)
         .populate('category')
         .populate('subCategories')
         .exec()

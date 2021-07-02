@@ -60,9 +60,28 @@ export default NextAuth({
     })
   ],
   callbacks: {
+    async jwt(token, user, account, profile, isNewUser) {
+      console.log('token', token)
+      console.log('user', user)
+      console.log('account', account)
+      console.log('profile', profile)
+      console.log('isNewUser', isNewUser)
+
+      if (account?.accessToken) {
+        token.accessToken = account.accessToken
+      }
+      if (user?.roles) {
+        token.roles = user.roles
+      }
+      return token
+    },
     async session(session, token) {
-      // Add property to session, like an access_token from a provider.
-      session.accessToken = token.accessToken
+      if (token?.accessToken) {
+        session.accessToken = token.accessToken
+      }
+      if (token?.roles) {
+        session.user.roles = token.roles
+      }
       return session
     }
   }

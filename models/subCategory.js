@@ -4,7 +4,7 @@ import { userSchema } from './user'
 
 const { ObjectId } = mongoose.Schema
 
-const subCategorySchema = new mongoose.Schema(
+export const subCategorySchema = new mongoose.Schema(
   {
     name: {
       type: String,
